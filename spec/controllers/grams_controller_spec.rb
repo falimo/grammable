@@ -10,8 +10,6 @@ RSpec.describe GramsController, type: :controller do
       expect(response).to have_http_status(:forbidden)
     end
 
-
-
     it "shouldn't allow unauthenticated users destroy a gram" do
       gram = FactoryGirl.create(:gram)
       delete :destroy, params: { id: gram.id}
@@ -165,7 +163,7 @@ RSpec.describe GramsController, type: :controller do
           picture: fixture_file_upload("/picture.png", 'image/png')
           }
         }
-        
+
       expect(response).to redirect_to root_path
     
       gram = Gram.last
